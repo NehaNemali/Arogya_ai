@@ -9,7 +9,7 @@ REST API for predictions
 
 How to Run Locally :
 1. Clone the repository
-git clone <repository-url>
+git clone <https://github.com/NehaNemali?tab=repositories>
 cd <repository-folder>
 
 2. Install dependencies
