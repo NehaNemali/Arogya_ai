@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symptom to Disease Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        label {
+            font-size: 16px;
+            margin-right: 15px;
+        }
+        .lang-options {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004c99;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #222;
+            white-space: pre-line;
+        }
+        audio {
+            margin-top: 15px;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function submitText() {
+            const inputText = document.getElementById("text").value;
+            const selectedLang = document.querySelector('input[name="lang"]:checked').value;
+            fetch("/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: inputText, lang: selectedLang })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerHTML = data.output;
+                const audio = document.getElementById("audio");
+                audio.src = data.audio_path;
+                audio.style.display = 'block';
+                audio.play();
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Symptom to Disease Prediction (English & Telugu)</h2>
+        <textarea id="text" rows="4" placeholder="Enter symptoms or disease..."></textarea>
+        <div class="lang-options">
+            <label><input type="radio" name="lang" value="english" checked> English</label>
+            <label><input type="radio" name="lang" value="telugu"> Telugu</label>
+        </div>
+        <button onclick="submitText()">Submit</button>
+        <p id="output"></p>
+        <audio id="audio" controls style="display:none;"></audio>
+    </div>
+</body>
+</html>
