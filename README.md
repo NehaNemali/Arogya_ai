@@ -12,7 +12,7 @@ How to Run Locally :
 git clone <https://github.com/NehaNemali/Arogya_ai.git>
 
 2. Install dependencies
-pip install transformers scikit-learn pandas torch
+pip install flask flask-cors torch transformers joblib scikit-learn pandas
 
 3. Run the backend
 python webapp.py
