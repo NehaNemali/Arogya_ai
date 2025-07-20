@@ -11,13 +11,13 @@ How to Run Locally :
 1. Clone the repository
 git clone <https://github.com/NehaNemali/Arogya_ai.git>
 
-3. Install dependencies
-pip install flask flask-cors torch transformers joblib
+2. Install dependencies
+pip install transformers scikit-learn pandas torch
 
-4. Run the backend
+3. Run the backend
 python webapp.py
 
-5. Open the frontend
+4. Open the frontend
 Open template.html directly in your browser
 
-6. Enter your symptoms and submit to get disease prediction and advice.
+5. Enter your symptoms and submit to get disease prediction and advice.
