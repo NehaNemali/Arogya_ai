@@ -1,11 +1,11 @@
-Arogya AI – A Multilingual Health Buddy for Bharat
+Arogya AI – A Multilingual Health Buddy for Bharat.
 This is a web application that predicts diseases and provides health advice based on symptoms input by the user in both English and Telugu.
 
 Features :
-Predict diseases based on user-entered symptoms
-Health advice in English and Telugu
-Simple and responsive web UI
-REST API for predictions
+Predict diseases based on user-entered symptoms.
+Health advice in English and Telugu.
+Simple and responsive web UI.
+REST API for predictions.
 
 How to Run Locally :
 1. Clone the repository
