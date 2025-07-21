@@ -21,3 +21,5 @@ python webapp.py
 Open template.html directly in your browser
 
 5. Enter your symptoms and submit to get disease prediction and advice.
+
+Note : Open source attributions are mentioned in the PPT.
